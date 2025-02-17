@@ -38,9 +38,5 @@ public class Order {
     @JoinColumn(name = "driver_id") // Foreign key column in the "orders" table
     private Driver assignedDriver;
 
-    @ManyToOne
-    @JoinColumn(name = "driver_id") // Foreign key column in the "orders" table
-    private Driver assignedDriver;
-
     }
 
