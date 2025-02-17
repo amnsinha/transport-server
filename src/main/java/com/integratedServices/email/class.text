@@ -1,0 +1,172 @@
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "country_visa_info")
+public class CountryVisaInfo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @Column(name = "iso2_code")
+    private String iso2Code;
+
+    private String purpose;
+    private int price;
+    private String currency;
+
+    @Column(name = "visas_done_in_k")
+    private int visasDoneInK;
+
+    @Column(name = "show_afc_sticker")
+    private boolean showAfcSticker;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "entry_process_id", referencedColumnName = "id")
+    private EntryProcess entryProcess;
+
+    private boolean supported;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "eta_id", referencedColumnName = "id")
+    private Eta eta;
+
+    private String category;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "hero_image_id", referencedColumnName = "id")
+    private HeroImage heroImage;
+
+    // Getters and Setters
+}
+
+@Entity
+@Table(name = "entry_process")
+public class EntryProcess {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "entry_process_id")
+    private List<EtaFusion> etaFusion;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dev_options_id", referencedColumnName = "id")
+    private DevOptions devOptions;
+
+    // Getters and Setters
+}
+
+@Entity
+@Table(name = "eta_fusion")
+public class EtaFusion {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String unit;
+    private int duration;
+
+    @Column(name = "on_event")
+    private String onEvent;
+
+    // Getters and Setters
+}
+
+@Entity
+@Table(name = "dev_options")
+public class DevOptions {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ElementCollection
+    @CollectionTable(name = "days_off", joinColumns = @JoinColumn(name = "dev_options_id"))
+    @Column(name = "day")
+    private List<String> daysOff;
+
+    @Column(name = "android_min_version")
+    private int androidMinVersion;
+
+    @Column(name = "ios_min_version")
+    private String iosMinVersion;
+
+    private boolean packetAutomation;
+    private boolean disableEtaTasks;
+    private boolean onlyIndigo;
+    private boolean useAfcDoxie;
+    private boolean allowInsuranceOnB2bPortal;
+    private boolean travelPartnerFlow;
+    private boolean onlyB2b;
+    private boolean onlyB2c;
+    private String postingTimeStart;
+    private String postingTimeEnd;
+    private boolean b2cEnableCheckoutPwon;
+    private boolean b2cEnableNotarize;
+    private boolean disableEtaTasksB2b;
+    private boolean b2cEnableRejectedVisaInsurance;
+
+    // Getters and Setters
+}
+
+@Entity
+@Table(name = "eta")
+public class Eta {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private long t0;
+    private String country;
+    private String purpose;
+
+    @Column(name = "visa_eta")
+    private long visaEta;
+
+    @Column(name = "earliest_apply_on")
+    private long earliestApplyOn;
+
+    @Column(name = "service_type")
+    private String serviceType;
+
+    @Column(name = "apply_delay")
+    private int applyDelay;
+
+    @Column(name = "display_eta")
+    private long displayEta;
+
+    // Getters and Setters
+}
+
+@Entity
+@Table(name = "hero_image")
+public class HeroImage {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String url;
+
+    @Embedded
+    private Dimensions dimensions;
+
+    // Getters and Setters
+}
+
+@Embeddable
+public class Dimensions {
+
+    private int width;
+    private int height;
+
+    // Getters and Setters
+}
