@@ -1,7 +1,6 @@
 package com.admin.controller;
 
 import com.admin.service.AdminService;
-import com.transport.entitiy.Games;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +15,6 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @PostMapping("/add-games")
-    public List<Games> register(List<Games> games) {
-        return adminService.saveGame(games);
-    }
 
     
     @PostMapping("/login")

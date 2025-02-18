@@ -26,6 +26,7 @@ public class Order {
     private double freightWeight;
     private String status;
     private String commissionAmount;
+    //=======================
     private String approvedBy;
     private String clearance;
     private String incharge;
