@@ -30,13 +30,17 @@ public class OrderService {
 
     public Order updateOrder(Long id, Order updatedOrder) {
         return orderRepository.findById(id).map(order -> {
-            order.setClientName(updatedOrder.getClientName());
+            order.setParty(updatedOrder.getParty());
             order.setOrigin(updatedOrder.getOrigin());
             order.setDestination(updatedOrder.getDestination());
             order.setFreightWeight(updatedOrder.getFreightWeight());
             order.setAssignedTruck(updatedOrder.getAssignedTruck());
             order.setAssignedDriver(updatedOrder.getAssignedDriver());
             order.setStatus(updatedOrder.getStatus());
+            order.setCommissionAmount(updatedOrder.getCommissionAmount());
+            order.setApprovedBy(updatedOrder.getApprovedBy());
+            order.setClearance(updatedOrder.getClearance());
+            order.setIncharge(updatedOrder.getIncharge());
             return orderRepository.save(order);
         }).orElseThrow(() -> new RuntimeException("Order not found with ID: " + id));
     }

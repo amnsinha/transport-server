@@ -11,31 +11,45 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "order")
+@Table(name = "orders")
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private int orderId;
-    private String clientName;
-    private String origin;
-    private String destination;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "party_id")
+    private Party party;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "origin_id")
+    private RouteLocation origin;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "destination_id")
+    private RouteLocation destination;
+
     private double freightWeight;
+
     private String status;
+
     private String commissionAmount;
-    //=======================
+
     private String approvedBy;
+
     private String clearance;
+
     private String incharge;
 
-    @ManyToOne
-    @JoinColumn(name = "truck_id") // Foreign key column in the "orders" table
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "truck_id")
     private Trucks assignedTruck;
 
-    @ManyToOne
-    @JoinColumn(name = "driver_id") // Foreign key column in the "orders" table
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "driver_id")
     private Driver assignedDriver;
 
-    }
-
+}
