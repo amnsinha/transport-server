@@ -1,8 +1,7 @@
 package com.transport.service;
 
-import com.transport.entitiy.Order;
+import com.transport.entity.Order;
 import com.transport.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

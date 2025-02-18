@@ -1,6 +1,6 @@
 package com.transport.controller;
 
-import com.transport.entitiy.Order;
+import com.transport.entity.Order;
 import com.transport.service.OrderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

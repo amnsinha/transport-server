@@ -1,6 +1,6 @@
 package com.transport.service;
 
-import com.transport.entitiy.Trucks;
+import com.transport.entity.Trucks;
 import com.transport.repository.TrucksRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

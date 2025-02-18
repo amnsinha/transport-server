@@ -1,4 +1,4 @@
-package com.transport.entitiy;
+package com.transport.entity;
 
 import lombok.*;
 
@@ -11,12 +11,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "routes")
-public class RouteLocation {
+@Table(name = "party_details")
+public class Party {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String locationName;
+    private String partyName;
+    private String ownerNumber;
+    private String ownerName;
 }
 

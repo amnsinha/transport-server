@@ -1,6 +1,6 @@
 package com.transport.controller;
 
-import com.transport.entitiy.RouteLocation;
+import com.transport.entity.RouteLocation;
 import com.transport.service.RoutesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

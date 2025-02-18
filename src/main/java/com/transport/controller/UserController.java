@@ -1,6 +1,5 @@
 package com.transport.controller;
 
-import com.transport.entitiy.User;
 import com.transport.entity.User;
 import com.transport.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

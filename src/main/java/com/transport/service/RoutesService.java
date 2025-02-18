@@ -1,6 +1,6 @@
 package com.transport.service;
 
-import com.transport.entitiy.RouteLocation;
+import com.transport.entity.RouteLocation;
 import com.transport.repository.RoutesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

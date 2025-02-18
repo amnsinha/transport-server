@@ -1,7 +1,6 @@
 package com.transport.repository;
 
-import com.transport.entitiy.Party;
-import com.transport.entitiy.Trucks;
+import com.transport.entity.Party;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

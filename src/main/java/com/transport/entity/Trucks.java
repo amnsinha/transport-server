@@ -1,11 +1,10 @@
-package com.transport.entitiy;
+package com.transport.entity;
 
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Map;
-import java.util.Random;
 import java.lang.*;
 
 @Entity

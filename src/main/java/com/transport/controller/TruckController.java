@@ -1,6 +1,6 @@
 package com.transport.controller;
 
-import com.transport.entitiy.Trucks;
+import com.transport.entity.Trucks;
 import com.transport.service.TrucksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

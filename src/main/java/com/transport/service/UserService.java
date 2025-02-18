@@ -1,6 +1,6 @@
 package com.transport.service;
 
-import com.transport.entitiy.User;
+import com.transport.entity.User;
 import com.transport.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

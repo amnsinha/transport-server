@@ -1,6 +1,6 @@
 package com.transport.controller;
 
-import com.transport.entitiy.Party;
+import com.transport.entity.Party;
 import com.transport.service.PartyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

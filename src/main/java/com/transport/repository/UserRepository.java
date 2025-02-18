@@ -1,6 +1,6 @@
 package com.transport.repository;
 
-import com.transport.entitiy.User;
+import com.transport.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
