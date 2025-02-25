@@ -30,10 +30,19 @@ public class TruckController {
         return ResponseEntity.ok(trucks);
     }
 
+
     // Get Truck by ID
     @GetMapping("/{id}")
     public ResponseEntity<Trucks> getTruckById(@PathVariable Long id) {
         Optional<Trucks> truck = truckService.getTruckById(id);
+        return truck.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Trucks> updateTruckById(@PathVariable Long id) {
+        Optional<Trucks> truck = truckService.getTruckById(id);
+        truckService.saveTruck(truck.get());
         return truck.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
