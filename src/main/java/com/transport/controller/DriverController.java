@@ -39,6 +39,14 @@ public class DriverController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Driver> updateDriverById(@PathVariable Long id) {
+        Optional<Driver> driver = driverService.getDriverById(id);
+        driverService.saveDriver(driver.get());
+        return driver.map(d -> new ResponseEntity<>(d, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
     // Retrieve Driver by Driver Number
     @GetMapping("/driver-number/{driverNumber}")
     public ResponseEntity<Driver> getDriverByDriverNumber(@PathVariable String driverNumber) {
